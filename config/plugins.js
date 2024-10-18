@@ -1,3 +1,5 @@
+const crypto = require('crypto');
+
 module.exports = ({ env }) => ({
     // ...
     upload: {
@@ -15,5 +17,11 @@ module.exports = ({ env }) => ({
         },
       },
     },
-    // ...
+    'users-permissions': {
+    config: {
+      jwt: {
+        jwtSecret: env('STRAPI_JWT_SECRET') || crypto.randomBytes(16).toString('base64')
+      },
+    },
+  },
   });
