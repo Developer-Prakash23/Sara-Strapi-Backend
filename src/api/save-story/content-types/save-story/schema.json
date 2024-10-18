@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "save_stories",
+  "info": {
+    "singularName": "save-story",
+    "pluralName": "save-stories",
+    "displayName": "SaveStory",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "story": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::story.story",
+      "inversedBy": "save_stories"
+    },
+    "user_list": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::user-list.user-list"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stories",
+  "info": {
+    "singularName": "story",
+    "pluralName": "stories",
+    "displayName": "Story",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "story": {
+      "type": "json",
+      "required": true
+    },
+    "user_list": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::user-list.user-list",
+      "inversedBy": "stories"
+    },
+    "cover_image": {
+      "type": "string"
+    },
+    "story_type": {
+      "type": "string"
+    },
+    "story_subjet": {
+      "type": "string"
+    },
+    "age_group": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "story_title": {
+      "type": "string"
+    },
+    "save_stories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::save-story.save-story",
+      "mappedBy": "story"
+    }
+  }
+}
