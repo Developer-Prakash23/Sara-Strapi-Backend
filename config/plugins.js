@@ -1,27 +1,24 @@
-const crypto = require('crypto');
+const crypto = require("crypto");
 
 module.exports = ({ env }) => ({
-    // ...
-    upload: {
-      config: {
-        provider: 'cloudinary',
-        providerOptions: {
-          cloud_name: env('CLOUDINARY_NAME'),
-          api_key: env('CLOUDINARY_KEY'),
-          api_secret: env('CLOUDINARY_SECRET'),
-        },
-        actionOptions: {
-          upload: {},
-          uploadStream: {},
-          delete: {},
-        },
-      },
-    },
-    'users-permissions': {
+  "users-permissions": {
     config: {
-      jwt: {
-        jwtSecret: env('STRAPI_JWT_SECRET') || crypto.randomBytes(16).toString('base64')
+      jwtSecret: env("JWT_SECRET") || crypto.randomBytes(16).toString("base64"),
+    },
+  },
+  upload: {
+    config: {
+      provider: "cloudinary",
+      providerOptions: {
+        cloud_name: env("CLOUDINARY_NAME"),
+        api_key: env("CLOUDINARY_KEY"),
+        api_secret: env("CLOUDINARY_SECRET"),
+      },
+      actionOptions: {
+        upload: {},
+        uploadStream: {},
+        delete: {},
       },
     },
   },
-  });
+});
